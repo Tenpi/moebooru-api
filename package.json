@@ -1,6 +1,6 @@
 {
   "name": "moebooru",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Wrapper for the Moebooru API.",
   "main": "dist/moebooru.js",
   "types": "dist/moebooru.d.ts",

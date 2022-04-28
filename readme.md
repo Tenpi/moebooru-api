@@ -82,7 +82,7 @@ export interface MoebooruCommentSearch {
 </details>
 
 <details>
-<summary>MoebooruCommentSearch</summary>
+<summary>MoebooruTagSearch</summary>
 
 ```ts
 export interface MoebooruTagSearch {

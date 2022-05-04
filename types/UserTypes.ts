@@ -5,4 +5,5 @@ export interface MoebooruUser {
     emailVerified: boolean
     publicFavorites: boolean
     image: string | null
+    url: string
 }

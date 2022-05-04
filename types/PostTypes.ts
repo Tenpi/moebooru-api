@@ -21,6 +21,7 @@ export interface MoebooruPost {
     tags: string[],
     favoriteCount: string
     cutenessAvg: string   
+    url: string
 }
 
 export interface MoebooruImage {
@@ -33,6 +34,7 @@ export interface MoebooruImage {
     size: number
     order: number
     hash: string
+    url: string
 }
 
 export interface MoebooruMiniPost {

@@ -1,5 +1,5 @@
 import api from "./API"
-import {Search, User, Post, Tag} from "./entities/index"
+import {Search, User, Post, Tag, Util} from "./entities/index"
 
 export default class Moebooru {
     public api = new api()
@@ -7,6 +7,7 @@ export default class Moebooru {
     public user = new User(this.api)
     public post = new Post(this.api)
     public tag = new Tag(this.api)
+    public util = new Util(this.api)
     public constructor() {}
 }
 

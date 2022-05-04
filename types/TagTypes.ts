@@ -1,6 +1,6 @@
 import {MoebooruPost} from "./index"
 
-export type MoebooruTagType = "artist" | "character" | "series" | "attribute"
+export type MoebooruTagType = "artist" | "character" | "series" | "tag"
 
 export interface MoebooruTagCategorySearch {
     tag: string

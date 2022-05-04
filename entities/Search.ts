@@ -1,9 +1,11 @@
 import api from "../API"
+import {Util} from "./Util"
 import {MoebooruSearchParams, MoebooruPost, MoebooruRandomParams, 
 MoebooruCategoryParams, MoebooruTagCategorySearch, MoebooruTagSearch,
 MoebooruCommentParams, MoebooruTagParams, MoebooruTagCount, MoebooruCommentSearch} from "../types"
 
 export class Search {
+    private util = new Util(this.api)
     public constructor(private readonly api: api) {}
 
     /**
@@ -16,8 +18,15 @@ export class Search {
          if (!params.restrict) params.restrict = "all"
          if (!params.style) params.style = "all"
          if (!params.sort) params.sort = "date"
-        const response = await this.api.get(`/search/posts`, params)
-        return response as Promise<MoebooruPost[]>
+        const response = await this.api.get(`/search/posts`, params) as MoebooruPost[]
+        for (let i = 0; i < response.length; i++) {
+            response[i].url = this.util.postLink(response[i])
+            for (let j = 0; j < response[i].images.length; j++) {
+                if (!response[i].images[j]) break
+                response[i].images[j].url = this.util.imageLink(response[i].images[j])
+            }
+        }
+        return response
     }
 
     /**
@@ -28,8 +37,15 @@ export class Search {
         if (!params.type) params.type = "all"
         if (!params.restrict) params.restrict = "all"
         if (!params.style) params.style = "all"
-       const response = await this.api.get(`/search/random`, params)
-       return response as Promise<MoebooruPost[]>
+       const response = await this.api.get(`/search/random`, params) as MoebooruPost[]
+       for (let i = 0; i < response.length; i++) {
+            response[i].url = this.util.postLink(response[i])
+            for (let j = 0; j < response[i].images.length; j++) {
+                if (!response[i].images[j]) break
+                response[i].images[j].url = this.util.imageLink(response[i].images[j])
+            }
+        }
+       return response
    }
 
    /**
